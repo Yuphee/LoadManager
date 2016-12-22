@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LoadManager</string>
+    <string name="no_data">暂无数据</string>
+    <string name="loading">内容正在加载...</string>
+</resources>
