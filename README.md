@@ -74,5 +74,5 @@ mLoadingAndRetryManager.showRetry(delay)</br>
 -集成更多动画,增加页面切换过渡效果支持,优化Fragment下集成
 
 ##感谢
-https://github.com/hongyangAndroid/LoadingAndRetryManager
+https://github.com/hongyangAndroid/LoadingAndRetryManager</br>
 https://github.com/dinuscxj/LoadingDrawable
