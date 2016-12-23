@@ -7,17 +7,17 @@
 # Screenshots
 ![image](/screenshots/video1.gif)
 
-#特性
+##特性
 - 支持Loading页的动画
 - 一键切换Loading,Retry,Content,Empty页面
 - 重载方法即可，方便集成开发
 
-#原理说明
+##原理说明
 - 动态为主页面(内容页)加上Loading,Retry,Empty页面
 - 支持Activity,Fragment,任何View（Fragment还有待完善）
 
 
-#使用方法
+##使用方法
  - 在Application中初始化布局
  ```java
  public class MApplication extends Application{
@@ -70,8 +70,9 @@ mLoadingAndRetryManager.showContent(delay)</br>
 mLoadingAndRetryManager.showRetry(delay)</br>
 去显示指定页面
 
-#TODO
+##TODO
 -集成更多动画,增加页面切换过渡效果支持,优化Fragment下集成
 
-#感谢
+##感谢
 https://github.com/hongyangAndroid/LoadingAndRetryManager
+https://github.com/dinuscxj/LoadingDrawable
