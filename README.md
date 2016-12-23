@@ -64,7 +64,11 @@
       });
   }
   ```
-- 通过mLoadingAndRetryManager.showLoading(delay) mLoadingAndRetryManager.showContent(delay) mLoadingAndRetryManager.showRetry(delay);去显示指定页面
+- 通过
+mLoadingAndRetryManager.showLoading(delay) 
+mLoadingAndRetryManager.showContent(delay)
+mLoadingAndRetryManager.showRetry(delay)
+去显示指定页面
 
 #TODO
 -集成更多动画,增加页面切换过渡效果支持,优化Fragment下集成
