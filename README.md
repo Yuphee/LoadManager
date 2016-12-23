@@ -48,7 +48,7 @@
     }
 }
 ```
- - 在指定Activity或者Fragment或者View中注册Manager
+ - 在指定Activity或者Fragment或者View中注册Manager,前提是继承BaseActivity,你可以根据具体项目已有的BaseActivity或者BaseFragment模仿Demo里面的写法,加入到你的项目中
  
  ```java
   @Override
