@@ -28,10 +28,10 @@ public class MApplication extends Application{
     public void onCreate() {
         super.onCreate();
         instance = this;
-        initLoadingManager();
+        initLoadManager();
     }
 
-    private void initLoadingManager() {
+    private void initLoadManager() {
         LoadingAndRetryManager.initManagerLayout(R.layout.layout_load_view,R.layout.layout_reload_view,
                 R.layout.empty_view);
     }
