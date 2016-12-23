@@ -19,6 +19,7 @@
 
 #使用方法
  - 在Application中初始化布局
+ ```java
  public class MApplication extends Application{
 
     private static MApplication instance = null;
@@ -46,7 +47,10 @@
                 R.layout.empty_view);
     }
 }
+```
  - 在指定Activity或者Fragment或者View中注册Manager
+ 
+ ```java
   @Override
   protected void initLoadManager() {
       super.initLoadManager();
@@ -59,6 +63,7 @@
 
       });
   }
+  ```
 - 通过mLoadingAndRetryManager.showLoading(delay) mLoadingAndRetryManager.showContent(delay) mLoadingAndRetryManager.showRetry(delay);去显示指定页面
 
 #TODO
