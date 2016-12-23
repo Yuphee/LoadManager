@@ -32,8 +32,7 @@ public class MApplication extends Application{
     }
 
     private void initLoadingManager() {
-        LoadingAndRetryManager.BASE_RETRY_LAYOUT_ID = R.layout.layout_reload_view;
-        LoadingAndRetryManager.BASE_LOADING_LAYOUT_ID = R.layout.layout_load_view;
-        LoadingAndRetryManager.BASE_EMPTY_LAYOUT_ID = R.layout.empty_view;
+        LoadingAndRetryManager.initManagerLayout(R.layout.layout_load_view,R.layout.layout_reload_view,
+                R.layout.empty_view);
     }
 }

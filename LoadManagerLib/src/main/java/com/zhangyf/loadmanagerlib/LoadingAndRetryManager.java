@@ -28,6 +28,12 @@ public class LoadingAndRetryManager {
         }
     };
 
+    public static void initManagerLayout(int loading_layout, int retry_layout, int empty_layout){
+        BASE_LOADING_LAYOUT_ID = loading_layout;
+        BASE_RETRY_LAYOUT_ID = retry_layout;
+        BASE_EMPTY_LAYOUT_ID = empty_layout;
+    }
+
 
     public LoadingAndRetryManager(Object activityOrFragmentOrView, OnLoadingAndRetryListener listener) {
         mListener = listener;

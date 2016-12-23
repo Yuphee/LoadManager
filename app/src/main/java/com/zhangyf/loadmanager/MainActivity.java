@@ -45,7 +45,7 @@ public class MainActivity extends BaseActivity {
             public void run() {
                 Random random = new Random();
                 int te = random.nextInt(10);
-                if(te < 6) {
+                if(te < 5) {
                     mLoadingAndRetryManager.showRetry();
                 }else {
                     // you can set showContent(delay)
@@ -53,7 +53,7 @@ public class MainActivity extends BaseActivity {
                 }
 
             }
-        },2000);
+        },3000);
     }
 
     @Override
