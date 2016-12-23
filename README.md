@@ -64,10 +64,10 @@
       });
   }
  ```
- - 通过
-mLoadingAndRetryManager.showLoading(delay) 
-mLoadingAndRetryManager.showContent(delay)
-mLoadingAndRetryManager.showRetry(delay)
+ - 通过</br>
+mLoadingAndRetryManager.showLoading(delay)</br>
+mLoadingAndRetryManager.showContent(delay)</br>
+mLoadingAndRetryManager.showRetry(delay)</br>
 去显示指定页面
 
 #TODO
