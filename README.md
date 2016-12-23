@@ -63,8 +63,8 @@
 
       });
   }
-  ```
-- 通过
+ ```
+ - 通过
 mLoadingAndRetryManager.showLoading(delay) 
 mLoadingAndRetryManager.showContent(delay)
 mLoadingAndRetryManager.showRetry(delay)
