@@ -8,8 +8,8 @@
 ![image](/screenshots/video1.gif)
 
 ##版本 
-v1.1 增加页面显示过渡动画,可自定义
-v1.0 增加loading基础框架
+- v1.1 增加页面显示过渡动画,可自定义
+- v1.0 增加loading基础框架
 
 ##特性
 - 支持Loading页的动画
