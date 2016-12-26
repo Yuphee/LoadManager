@@ -10,17 +10,57 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     >
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/rl_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!" />
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Hello World!"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="20dp"
+            android:background="#00ff35"/>
 
-    </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Hello World!"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#abcdef"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Hello World!"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#aaffff"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Hello World!"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#ffff35"/>
+
+        <Button
+            android:id="@+id/bt_test"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:transitionName="shareName"
+            />
+
+    </LinearLayout>
 
 
 </RelativeLayout>

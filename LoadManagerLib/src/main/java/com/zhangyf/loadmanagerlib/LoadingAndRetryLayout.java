@@ -1,11 +1,15 @@
 package com.zhangyf.loadmanagerlib;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
 import android.content.Context;
 import android.os.Looper;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.FrameLayout;
 
 /**
@@ -17,6 +21,7 @@ public class LoadingAndRetryLayout extends FrameLayout {
     private View mContentView;
     private View mEmptyView;
     private LayoutInflater mInflater;
+    public static final long DEFAULT_DURATION = 500;
 
     private static final String TAG = LoadingAndRetryLayout.class.getSimpleName();
 
@@ -52,32 +57,43 @@ public class LoadingAndRetryLayout extends FrameLayout {
         }
     }
 
+    @Deprecated
     public void showRetry() {
+        showRetry(null,DEFAULT_DURATION);
+    }
+
+    public void showRetry(final AnimatorsListener anim, final long duration) {
         if (isMainThread()) {
-            showView(mRetryView);
+            showView(mRetryView,anim,duration);
         } else {
             post(new Runnable() {
                 @Override
                 public void run() {
-                    showView(mRetryView);
+                    showView(mRetryView,anim,duration);
                 }
             });
         }
 
     }
 
+    @Deprecated
     public void showContent() {
+        showContent(null,DEFAULT_DURATION);
+    }
+
+    public void showContent(final AnimatorsListener anim, final long duration) {
         if (isMainThread()) {
-            showView(mContentView);
+            showView(mContentView,anim,duration);
         } else {
             post(new Runnable() {
                 @Override
                 public void run() {
-                    showView(mContentView);
+                    showView(mContentView,anim,duration);
                 }
             });
         }
     }
+
 
     public void showEmpty() {
         if (isMainThread()) {
@@ -94,8 +110,35 @@ public class LoadingAndRetryLayout extends FrameLayout {
 
 
     private void showView(View view) {
-        if (view == null) return;
+        showView(view, null, DEFAULT_DURATION);
+    }
 
+    private void showView(final View view, AnimatorsListener mListener, long duration) {
+        if (view == null) {
+            return;
+        }
+        if (mListener != null) {
+            if(duration <= 0) {
+                throw new IllegalArgumentException("durantion must more than 0");
+            }
+            AnimatorSet animSet = new AnimatorSet();
+            animSet.playTogether(mListener.onAnimators(mContentView));
+            animSet.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationStart(Animator animation) {
+                    super.onAnimationStart(animation);
+                    changeViewVisible(view);
+                }
+            });
+            animSet.setDuration(duration);
+            animSet.start();
+        }else {
+            changeViewVisible(view);
+        }
+
+    }
+
+    private void changeViewVisible(View view) {
         if (view == mLoadingView) {
             mLoadingView.setVisibility(View.VISIBLE);
             if (mRetryView != null)
@@ -129,8 +172,6 @@ public class LoadingAndRetryLayout extends FrameLayout {
             if (mContentView != null)
                 mContentView.setVisibility(View.GONE);
         }
-
-
     }
 
     public View setContentView(int layoutId) {
@@ -208,5 +249,9 @@ public class LoadingAndRetryLayout extends FrameLayout {
 
     public View getEmptyView() {
         return mEmptyView;
+    }
+
+    public interface AnimatorsListener{
+        Animator[] onAnimators(View view);
     }
 }

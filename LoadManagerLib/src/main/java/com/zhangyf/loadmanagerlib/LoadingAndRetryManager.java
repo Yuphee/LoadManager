@@ -151,22 +151,60 @@ public class LoadingAndRetryManager {
 
     }
 
+    /**
+     * default
+     */
     public void showRetry() {
         showRetry(0);
     }
 
+    /**
+     *
+     * @param delay
+     */
     public void showRetry(long delay) {
+        showRetry(delay,null,LoadingAndRetryLayout.DEFAULT_DURATION);
+    }
+
+    /**
+     *
+     * @param listener anim
+     */
+    public void showRetry(final LoadingAndRetryLayout.AnimatorsListener listener) {
+        showRetry(0,listener,LoadingAndRetryLayout.DEFAULT_DURATION);
+
+    }
+
+    /**
+     *
+     * @param listener
+     * @param duration
+     */
+    public void showRetry(final LoadingAndRetryLayout.AnimatorsListener listener,long duration) {
+        showRetry(0,listener,duration);
+
+    }
+
+    /**
+     * 设置重载页
+     * @param delay
+     * @param listener anim
+     */
+    public void showRetry(long delay, final LoadingAndRetryLayout.AnimatorsListener listener, final long duration) {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                mLoadingAndRetryLayout.showRetry();
+                mLoadingAndRetryLayout.showRetry(listener,duration);
                 mListener.onLoadingEndEvent(mLoadingAndRetryLayout.getLoadingView());
                 mListener.onRetryEvent(mLoadingAndRetryLayout.getRetryView());
             }
         }, delay);
-
     }
 
+
+    /**
+     * default
+     */
     public void showContent() {
         showContent(0);
     }
@@ -177,10 +215,38 @@ public class LoadingAndRetryManager {
      * @param delay
      */
     public void showContent(long delay) {
+        showContent(delay,null,LoadingAndRetryLayout.DEFAULT_DURATION);
+    }
+
+    /**
+     *
+     * @param listener anim
+     */
+    public void showContent(final LoadingAndRetryLayout.AnimatorsListener listener) {
+        showContent(0,listener,LoadingAndRetryLayout.DEFAULT_DURATION);
+
+    }
+
+    /**
+     *
+     * @param listener
+     * @param duration
+     */
+    public void showContent(final LoadingAndRetryLayout.AnimatorsListener listener,long duration) {
+        showContent(0,listener,duration);
+
+    }
+
+    /**
+     *设置内容页
+     * @param delay
+     * @param listener anim
+     */
+    public void showContent(long delay, final LoadingAndRetryLayout.AnimatorsListener listener, final long duration) {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                mLoadingAndRetryLayout.showContent();
+                mLoadingAndRetryLayout.showContent(listener,duration);
                 mListener.onLoadingEndEvent(mLoadingAndRetryLayout.getLoadingView());
                 mListener.onContentEvent(mLoadingAndRetryLayout);
             }
@@ -188,10 +254,17 @@ public class LoadingAndRetryManager {
 
     }
 
+    /**
+     * default
+     */
     public void showEmpty() {
         showEmpty(0);
     }
 
+    /**
+     * 设置空白页
+     * @param delay
+     */
     public void showEmpty(long delay) {
         new Handler().postDelayed(new Runnable() {
             @Override
