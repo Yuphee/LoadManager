@@ -47,7 +47,7 @@
     }
 
     private void initLoadManager() {
-        LoadingAndRetryManager.initManagerLayout(R.layout.layout_load_view,R.layout.layout_reload_view,
+        PrePageManager.initManagerLayout(R.layout.layout_load_view,R.layout.layout_reload_view,
                 R.layout.empty_view);
     }
 }
@@ -56,17 +56,17 @@
  
  ```java
   @Override
-  protected void initLoadManager() {
-      super.initLoadManager();
-      mLoadingAndRetryManager = LoadingAndRetryManager.generate(this, new DefaultLoadListener() {
-          @Override
-          public void onRetryClick(View retryView) {
-              // Do Something
-              loadData();
-          }
+    protected void initPreManager() {
+        super.initPreManager();
+        mPrePageManager = PrePageManager.generate(this, new DefaultLoadListener() {
+            @Override
+            public void onRetryClick(View retryView) {
+                // Do Something
+                loadData();
+            }
 
-      });
-  }
+        });
+    }
  ```
 注: DefaultLoadListener已经经过另一层封装自定义了，原始的回调接口是OnLoadingAndRetryListener，在各个界面的显示前后都会有回调，如果想针对具体的某个Activity或者Fragment或者View进行布局，可以重载下面这些方法来替换Application中默认的布局
 
@@ -88,9 +88,9 @@
  ```
  
  - 通过</br>
-mLoadingAndRetryManager.showLoading(delay,anim)</br>
-mLoadingAndRetryManager.showContent(delay,anim)</br>
-mLoadingAndRetryManager.showRetry(delay,anim)</br>
+mPrePageManager.showLoading(delay,anim)</br>
+mPrePageManager.showContent(delay,anim)</br>
+mPrePageManager.showRetry(delay,anim)</br>
 去显示指定页面
 
 ##TODO
