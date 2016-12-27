@@ -2,12 +2,10 @@ package com.zhangyf.loadmanager.base;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.inputmethod.InputMethodManager;
 
-import com.zhangyf.loadmanagerlib.LoadingAndRetryManager;
+import com.zhangyf.loadmanagerlib.PrePageManager;
 
 import butterknife.ButterKnife;
 
@@ -17,7 +15,7 @@ import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    protected LoadingAndRetryManager mLoadingAndRetryManager;
+    protected PrePageManager mPrePageManager;
     protected int mLayoutId;
     public Context mContext;
 
@@ -34,7 +32,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             ButterKnife.bind(this);
         }
         // 页面加载管理器初始化
-        initLoadManager();
+        initPreManager();
         onInit(savedInstanceState);
     }
 
@@ -44,7 +42,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract void onInit(Bundle savedInstanceState);
 
-    protected void initLoadManager(){};
+    protected void initPreManager(){};
 
     @Override
     protected void onDestroy() {

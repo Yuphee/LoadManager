@@ -5,7 +5,7 @@ import android.view.View;
 
 import com.zhangyf.loadmanager.R;
 import com.zhangyf.loadmanager.widget.loadingdrawable.LoadingView;
-import com.zhangyf.loadmanagerlib.OnLoadingAndRetryListener;
+import com.zhangyf.loadmanagerlib.OnPrePageListener;
 
 
 /**
@@ -13,12 +13,12 @@ import com.zhangyf.loadmanagerlib.OnLoadingAndRetryListener;
  * 默认叶子加载动画Loading页
  */
 
-public abstract class DefaultLoadListener extends OnLoadingAndRetryListener {
+public abstract class DefaultLoadListener extends OnPrePageListener {
 
     public abstract void onRetryClick(View retryView);
 
     @Override
-    public void onRetryEvent(final View retryView) {
+    public void onRetryStart(final View retryView) {
         View view = retryView.findViewById(R.id.btn_reload);
         view.setOnClickListener(new View.OnClickListener()
         {
@@ -31,8 +31,8 @@ public abstract class DefaultLoadListener extends OnLoadingAndRetryListener {
     }
 
     @Override
-    public void onLoadingEvent(View loadingView) {
-        super.onLoadingEvent(loadingView);
+    public void onLoadingStart(View loadingView) {
+        super.onLoadingStart(loadingView);
         final LoadingView view = (LoadingView) loadingView.findViewById(R.id.electric_fan_view);
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -44,9 +44,10 @@ public abstract class DefaultLoadListener extends OnLoadingAndRetryListener {
     }
 
     @Override
-    public void onLoadingEndEvent(View loadingView) {
-        super.onLoadingEndEvent(loadingView);
+    public void onLoadingEnd(View loadingView) {
+        super.onLoadingEnd(loadingView);
         final LoadingView view = (LoadingView) loadingView.findViewById(R.id.electric_fan_view);
         view.stopAnimation();
     }
+
 }

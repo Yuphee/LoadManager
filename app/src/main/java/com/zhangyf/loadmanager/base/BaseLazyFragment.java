@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-import com.zhangyf.loadmanagerlib.LoadingAndRetryManager;
+import com.zhangyf.loadmanagerlib.PrePageManager;
 
 import butterknife.ButterKnife;
 
@@ -23,7 +23,7 @@ public abstract class BaseLazyFragment extends Fragment {
     protected AppCompatActivity mActivity;
     public View root;
     protected int layoutId;
-    protected LoadingAndRetryManager mLoadingAndRetryManager;
+    protected PrePageManager mPrePageManager;
 
     @Override
     public void onAttach(Context context) {
@@ -45,7 +45,7 @@ public abstract class BaseLazyFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         // 页面加载管理器初始化
-        initLoadManager();
+        initPreManager();
         onInit();
         isPrepared = true;
         lazyLoad();
@@ -101,5 +101,5 @@ public abstract class BaseLazyFragment extends Fragment {
         }
     }
 
-    protected void initLoadManager(){}
+    protected void initPreManager(){}
 }

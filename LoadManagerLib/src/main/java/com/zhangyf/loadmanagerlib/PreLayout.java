@@ -9,13 +9,12 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.FrameLayout;
 
 /**
  * Created by zhangyf on 16/12/20
  */
-public class LoadingAndRetryLayout extends FrameLayout {
+public class PreLayout extends FrameLayout {
     private View mLoadingView;
     private View mRetryView;
     private View mContentView;
@@ -23,20 +22,20 @@ public class LoadingAndRetryLayout extends FrameLayout {
     private LayoutInflater mInflater;
     public static final long DEFAULT_DURATION = 500;
 
-    private static final String TAG = LoadingAndRetryLayout.class.getSimpleName();
+    private static final String TAG = PreLayout.class.getSimpleName();
 
 
-    public LoadingAndRetryLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public PreLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mInflater = LayoutInflater.from(context);
     }
 
 
-    public LoadingAndRetryLayout(Context context, AttributeSet attrs) {
+    public PreLayout(Context context, AttributeSet attrs) {
         this(context, attrs, -1);
     }
 
-    public LoadingAndRetryLayout(Context context) {
+    public PreLayout(Context context) {
         this(context, null);
     }
 

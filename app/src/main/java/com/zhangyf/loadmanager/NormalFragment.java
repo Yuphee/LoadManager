@@ -1,19 +1,15 @@
 package com.zhangyf.loadmanager;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.zhangyf.loadmanager.base.BaseLazyFragment;
 import com.zhangyf.loadmanager.listener.DefaultLoadListener;
-import com.zhangyf.loadmanagerlib.LoadingAndRetryLayout;
-import com.zhangyf.loadmanagerlib.LoadingAndRetryManager;
+import com.zhangyf.loadmanagerlib.PrePageManager;
 
 import java.util.Random;
 
@@ -44,9 +40,9 @@ public class NormalFragment extends BaseLazyFragment
     }
 
     @Override
-    protected void initLoadManager() {
-        super.initLoadManager();
-        mLoadingAndRetryManager = LoadingAndRetryManager.generate(this, new DefaultLoadListener()
+    protected void initPreManager() {
+        super.initPreManager();
+        mPrePageManager = PrePageManager.generate(this, new DefaultLoadListener()
         {
             @Override
             public void onRetryClick(View retryView) {
@@ -57,17 +53,17 @@ public class NormalFragment extends BaseLazyFragment
     }
 
     private void loadData() {
-        mLoadingAndRetryManager.showLoading();
+        mPrePageManager.showLoading();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Random random = new Random();
                 int te = random.nextInt(10);
                 if(!isload){
-                    mLoadingAndRetryManager.showRetry();
+                    mPrePageManager.showRetry();
                     isload = true;
                 }else{
-                    mLoadingAndRetryManager.showContent();
+                    mPrePageManager.showContent();
                 }
 //                if (te < 5) {
 //                    mLoadingAndRetryManager.showRetry();

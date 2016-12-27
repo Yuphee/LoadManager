@@ -9,8 +9,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.transition.Slide;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -20,8 +20,8 @@ import android.widget.LinearLayout;
 
 import com.zhangyf.loadmanager.base.BaseActivity;
 import com.zhangyf.loadmanager.listener.DefaultLoadListener;
-import com.zhangyf.loadmanagerlib.LoadingAndRetryLayout;
-import com.zhangyf.loadmanagerlib.LoadingAndRetryManager;
+import com.zhangyf.loadmanagerlib.PreLayout;
+import com.zhangyf.loadmanagerlib.PrePageManager;
 
 import java.util.Random;
 
@@ -58,10 +58,11 @@ public class MainActivity extends BaseActivity {
         getWindow().setExitTransition(slide);
         // init your data and call mLoadingAndRetryManager.xxx to control the view show and gone
         loadData();
+        ContextCompat.getColor(this, R.color.colorPrimary);
     }
 
     private void loadData() {
-        mLoadingAndRetryManager.showLoading();
+        mPrePageManager.showLoading();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -69,11 +70,11 @@ public class MainActivity extends BaseActivity {
                 int te = random.nextInt(10);
 
                 if(!isload){
-                    mLoadingAndRetryManager.showRetry();
+                    mPrePageManager.showRetry();
                     isload = true;
                 }else{
                     // you can set showContent(delay) or set the showview entering animator
-                    mLoadingAndRetryManager.showContent(new LoadingAndRetryLayout.AnimatorsListener(){
+                    mPrePageManager.showContent(new PreLayout.AnimatorsListener(){
                         @Override
                         public Animator[] onAnimators(View view) {
                             return new Animator[] { ObjectAnimator.ofFloat(view, "alpha", 0f, 1f)
@@ -99,9 +100,9 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected void initLoadManager() {
-        super.initLoadManager();
-        mLoadingAndRetryManager = LoadingAndRetryManager.generate(this, new DefaultLoadListener() {
+    protected void initPreManager() {
+        super.initPreManager();
+        mPrePageManager = PrePageManager.generate(this, new DefaultLoadListener() {
             @Override
             public void onRetryClick(View retryView) {
                 // Do Something

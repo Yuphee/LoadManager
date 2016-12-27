@@ -3,7 +3,7 @@ package com.zhangyf.loadmanager.base;
 import android.app.Application;
 
 import com.zhangyf.loadmanager.R;
-import com.zhangyf.loadmanagerlib.LoadingAndRetryManager;
+import com.zhangyf.loadmanagerlib.PrePageManager;
 
 /**
  * Created by zhangyf on 2016/12/22.
@@ -32,7 +32,7 @@ public class MApplication extends Application{
     }
 
     private void initLoadManager() {
-        LoadingAndRetryManager.initManagerLayout(R.layout.layout_load_view,R.layout.layout_reload_view,
+        PrePageManager.initManagerLayout(R.layout.layout_load_view,R.layout.layout_reload_view,
                 R.layout.empty_view);
     }
 }
