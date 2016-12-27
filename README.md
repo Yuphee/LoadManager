@@ -69,9 +69,9 @@
   }
  ```
  - 通过</br>
-mLoadingAndRetryManager.showLoading(delay)</br>
-mLoadingAndRetryManager.showContent(delay)</br>
-mLoadingAndRetryManager.showRetry(delay)</br>
+mLoadingAndRetryManager.showLoading(delay,anim)</br>
+mLoadingAndRetryManager.showContent(delay,anim)</br>
+mLoadingAndRetryManager.showRetry(delay,anim)</br>
 去显示指定页面
 
 ##TODO
