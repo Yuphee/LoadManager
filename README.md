@@ -75,7 +75,7 @@ mLoadingAndRetryManager.showRetry(delay,anim)</br>
 去显示指定页面
 
 ##TODO
--集成更多动画,增加页面切换过渡效果支持,优化Fragment下集成,注：上面的gif中activity之间的过渡动画是transition framework的动画并非框架动画（最近兴刚研究的），框架的动画添加是在Loading结束时显示内容页或者重载页的时候出现的动画。可以自定义成你想要的效果，demo中只是简陋的平移和渐变，后续会加入一些好看的默认动画！谢谢大家支持！
+-集成更多动画,增加页面切换过渡效果支持,优化Fragment下集成,注：上面的gif中activity之间的过渡动画是transition framework的动画并非框架动画（最近兴趣刚研究的），框架的动画添加是在Loading结束时显示内容页或者重载页的时候出现的动画。可以自定义成你想要的效果，demo中只是简陋的平移和渐变，后续会加入一些好看的默认动画！谢谢大家支持！
 ##感谢
 https://github.com/hongyangAndroid/LoadingAndRetryManager</br>
 https://github.com/dinuscxj/LoadingDrawable
