@@ -68,7 +68,24 @@
       });
   }
  ```
-注: DefaultLoadListener已经经过另一层封装自定义了，原始的回调接口是OnLoadingAndRetryListener，在各个界面的显示前后都会有回调，同时也可以重载布局文件的ResourceId
+注: DefaultLoadListener已经经过另一层封装自定义了，原始的回调接口是OnLoadingAndRetryListener，在各个界面的显示前后都会有回调，如果想针对具体的某个Activity或者Fragment或者View进行布局，可以重载下面这些方法来替换Application中默认的布局
+
+...java
+@Override
+    public int generateLoadingLayoutId() {
+        return super.generateLoadingLayoutId();
+    }
+
+    @Override
+    public int generateRetryLayoutId() {
+        return super.generateRetryLayoutId();
+    }
+
+    @Override
+    public int generateEmptyLayoutId() {
+        return super.generateEmptyLayoutId();
+    }
+ ...
  
  - 通过</br>
 mLoadingAndRetryManager.showLoading(delay,anim)</br>
