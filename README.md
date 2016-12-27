@@ -68,6 +68,8 @@
       });
   }
  ```
+注: DefaultLoadListener已经经过另一层封装自定义了，原始的回调接口是OnLoadingAndRetryListener，在各个界面的显示前后都会有回调，同时也可以重载布局文件的ResourceId
+ 
  - 通过</br>
 mLoadingAndRetryManager.showLoading(delay,anim)</br>
 mLoadingAndRetryManager.showContent(delay,anim)</br>
