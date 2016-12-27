@@ -1,5 +1,5 @@
 # LoadManager
-页面加载重载空白页一键集成
+页面加载(Loading Page)重载(Reload Page)空白页(Empty Page)一键集成
 
 > 关于我，欢迎关注  
   邮箱：437220638@qq.com
