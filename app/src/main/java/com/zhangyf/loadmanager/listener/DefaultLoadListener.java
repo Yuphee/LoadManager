@@ -50,4 +50,6 @@ public abstract class DefaultLoadListener extends OnPrePageListener {
         view.stopAnimation();
     }
 
+
+
 }
