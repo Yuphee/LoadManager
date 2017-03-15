@@ -7,9 +7,29 @@
 # Screenshots
 ![image](/screenshots/video1.gif)
 
+##Getting started
+Add it in your root build.gradle at the end of repositories:
+ ```java
+allprojects {
+    repositories {
+        ...
+        maven { url "https://jitpack.io" }
+    }
+}
+ ```
+ Add the dependency
+  ```java
+ dependencies {
+        compile 'com.github.Yuphee:LoadManager:VERSION_CODE'
+}
+ ```
+ replace VERSION_CODE with real version name such as released in [Here](https://github.com/Yuphee/LoadManager/releases)
+ 
+ notice: Both have to write, or else can not be loaded successfully.
+
 ##版本 
-- v1.1 增加页面显示过渡动画,可自定义
-- v1.0 增加loading基础框架
+- v1.0.1 增加页面显示过渡动画,可自定义
+- v1.0.0 增加loading基础框架
 
 ##特性
 - 支持Loading页的动画
