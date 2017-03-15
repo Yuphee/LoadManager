@@ -25,7 +25,7 @@ allprojects {
  ```
  replace VERSION_CODE with real version name such as released in [Here](https://github.com/Yuphee/LoadManager/releases)
  
- # notice
+ ### notice
  
  Both have to write, or else can not be loaded successfully.
 
