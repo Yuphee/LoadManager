@@ -7,7 +7,7 @@
 # Screenshots
 ![image](/screenshots/video1.gif)
 
-##Getting started
+## Getting started
 Add it in your root build.gradle at the end of repositories:
  ```java
 allprojects {
@@ -25,7 +25,9 @@ allprojects {
  ```
  replace VERSION_CODE with real version name such as released in [Here](https://github.com/Yuphee/LoadManager/releases)
  
- notice: Both have to write, or else can not be loaded successfully.
+ # notice
+ 
+ Both have to write, or else can not be loaded successfully.
 
 ##版本 
 - v1.0.1 增加页面显示过渡动画,可自定义
