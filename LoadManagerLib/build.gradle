@@ -33,7 +33,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-// build a jar with source files
+// 打包源码jar
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'
@@ -46,7 +46,7 @@ task javadoc(type: Javadoc) {
     classpath += configurations.compile
 }
 
-// build a jar with javadoc
+// 打包文档jar
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
